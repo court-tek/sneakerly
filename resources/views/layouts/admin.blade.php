@@ -7,16 +7,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+	{{-- <link rel="preconnect" href="https://fonts.googleapis.com"> --}}
+	{{-- <link rel="preconnect" href="{{ url('https://fonts.gstatic.com') }}" crossorigin> --}}
+	{{-- <link href="{{ url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap') }}" rel="stylesheet"> --}}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url('admin/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link href="{{ url('admin/vendor/fonts/circular-std/style.css" rel="stylesheet') }}">
+    <link href="{{ url('admin/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('admin/libs/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('admin/vendor/fonts/fontawesome/css/fontawesome-all.css') }}">
     <link rel="stylesheet" href="{{ url('admin/vendor/charts/morris-bundle/morris.css') }}">
-    <link rel="stylesheet" href="{{ url('admin/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')}}">
-    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <link rel="stylesheet" href="{{ url('admin/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css') }}">
+    <title>@yield('title')</title>
 </head>
 
 <body>
@@ -27,14 +28,14 @@
 	    <!-- ============================================================== -->
 	    <!-- navbar -->
 	    <!-- ============================================================== -->
-	    @include('admin.layouts.header')
+	    @include('layouts.header')
 	    <!-- ============================================================== -->
 	    <!-- end navbar -->
 	    <!-- ============================================================== -->
 	    <!-- ============================================================== -->
 	    <!-- left sidebar -->
 	    <!-- ============================================================== -->
-	    @include('admin.layouts.sidebar')
+	    @include('layouts.sidebar')
 	    <!-- ============================================================== -->
 	    <!-- end left sidebar -->
 	    <!-- ============================================================== -->

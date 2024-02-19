@@ -1,13 +1,7 @@
 <!-- resources/views/child.blade.php -->
 @extends('layouts.admin')
  
-@section('title', 'Sneakerly')
- 
-@section('sidebar')
-    @parent
- 
-    <p>This is appended to the master sidebar.</p>
-@endsection
+@section('title', 'Sneakerly Admin Home')
  
 @section('content')
 <div class="dashboard-wrapper">
@@ -564,7 +558,7 @@
 	        <!-- ============================================================== -->
 	        <!-- footer -->
 	        <!-- ============================================================== -->
-	        @include('admin.layouts.footer');
+	        @include('layouts.footer');
 	        <!-- ============================================================== -->
 	        <!-- end footer -->
 	        <!-- ============================================================== -->
