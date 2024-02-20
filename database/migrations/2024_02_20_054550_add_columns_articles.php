@@ -12,16 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->increments('id');
             $table->foreignId('user_id')->constrained();
             $table->string('title');
             $table->string('img_url');
             $table->string('category_id');
             $table->string('author');
             $table->boolean('featured')->default(false);
-            $table->lonText('content');
-            
-            $table->timestamps();
+            $table->longText('content'); 
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        //
     }
 };

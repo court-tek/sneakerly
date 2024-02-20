@@ -19,9 +19,9 @@ Route::get('/', function () {
 });
 
 Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function() {
-    Route::get('dashboard', 'AdminController@dashboard');
-    Route::get('articles-create', 'AdminController@create');
-    Route::get('articles-all', 'AdminController@all');
+    Route::get('dashboard', 'AdminController@dashboard')->middleware('auth');
+    Route::get('articles-create', 'AdminController@create')->middleware('auth');
+    Route::get('articles-all', 'AdminController@all')->middleware('auth');
 })->middleware(['auth', 'verified']);
 
 // Route::get('/admin/dashboard', 'AdminController@dashboard');

@@ -19,6 +19,10 @@ class AdminController extends Controller
         return view('admin/all');
     }
 
+    public function show() {
+        
+    }
+
     public function edit() {
 
     }
@@ -28,6 +32,6 @@ class AdminController extends Controller
     }
 
     public function destroy() {
-        
+
     }
 }
