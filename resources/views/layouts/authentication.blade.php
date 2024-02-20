@@ -9,10 +9,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Login</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ url('admin/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link href="{{ url('admin/vendor/fonts/circular-std/style.css" rel="stylesheet') }}">
-    <link rel="stylesheet" href="{{ url('admin/libs/css/style.css') }}">
-    <link rel="stylesheet" href="{{ url('admin/vendor/fonts/fontawesome/css/fontawesome-all.css') }}">
+    <link href="{{ url('admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" >
+    <link href="{{ url('admin/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
+    <link href="{{ url('admin/libs/css/style.css') }}" rel="stylesheet">
+    <link href="{{ url('admin/vendor/fonts/fontawesome/css/fontawesome-all.css') }}" rel="stylesheet">
     <style>
     html,
     body {

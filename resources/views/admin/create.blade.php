@@ -1,5 +1,5 @@
 <!-- resources/views/child.blade.php -->
-@extends('layouts.admin')
+@extends('layouts.admin.admin')
  
 @section('title', 'Sneakerly Create Article')
  
@@ -17,7 +17,7 @@
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/admin/dash" class="breadcrumb-link">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}" class="breadcrumb-link">Dashboard</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Create New Article</li>
                             </ol>
                         </nav>
@@ -38,30 +38,55 @@
                     <div class="card">
                         <h5 class="card-header">Basic Form</h5>
                         <div class="card-body">
-                            <form method="POST" action="" id="basicform" data-parsley-validate="">
+                            <form method="POST" action="{{ route('logout') }}" data-parsley-validate="">
                                 @csrf
                                 <div class="form-group">
                                     <label for="title">Title</label>
-                                    <input id="title" type="text" name="title" data-parsley-trigger="change" required="" placeholder="" value="<?= $article['title'] ?? '' ?>" autocomplete="off" class="form-control">
+                                    <input id="title" type="text" name="title" required="" placeholder="" value="{{ old('title') }}" autocomplete="off" class="form-control">
                                 </div>
+                                @error('email')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="img_url">Image Url</label>
-                                    <input id="img_url" type="text" name="img_url" data-parsley-trigger="change" required="" placeholder="" value="<?= $article['img_url'] ?? '' ?>" autocomplete="off" class="form-control">
+                                    <input id="img_url" type="text" name="img_url" required="" placeholder="" value="{{ old('img_url') }}" autocomplete="off" class="form-control">
                                 </div>  
+                                @error('img_url')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="category_id">Category Id</label>
                                     <select name="category_id" value="" class="form-control">
                                             <option></option>
                                     </select>
-                                </div>                          
+                                </div>
+                                @error('category_id')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror                      
                                 <div class="form-group">
                                     <label for="author">Author</label>
-                                    <input id="author" type="text" name="author" data-parsley-trigger="change" required="" placeholder="" value="<?= $article['author'] ?? '' ?>" autocomplete="off" class="form-control">
-                                </div>                            
+                                    <input id="author" type="text" name="author" data-parsley-trigger="change" required="" placeholder="" value="{{ old('author') }}" autocomplete="off" class="form-control">
+                                </div>     
+                                @error('author')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror                       
                                 <div class="form-group">
                                     <label for="content">Content</label>
-                                    <textarea required="" name="content" class="form-control"></textarea>
-                                </div>                            
+                                    <textarea required="" name="content" class="form-control">{{ old('content') }}</textarea>
+                                </div>    
+                                @error('content')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror                        
                                 <div class="row">
                                     <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                                         <label class="be-checkbox custom-control custom-checkbox">
@@ -91,7 +116,7 @@
     <!-- ============================================================== -->
     <!-- footer -->
     <!-- ============================================================== -->
-    @include('layouts.footer');
+    @include('layouts.admin.footer');
     <!-- ============================================================== -->
     <!-- end footer -->
     <!-- ============================================================== -->

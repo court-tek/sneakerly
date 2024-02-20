@@ -14,13 +14,21 @@
             <form method="POST" action="{{ route('login') }}" data-parsley-validate="">
                 @csrf
                 <div class="form-group">
-                    <label for="inputEmail">Email address</label>
-                    <input id="inputEmail" type="email" name="email" data-parsley-equalto="change" value="{{ old('email') }}" placeholder="Enter email" autocomplete="off" class="form-control" required="">
+                    <input class="form-control form-control-lg" id="email" name="email" value="{{ old('email') }}" type="email" placeholder="Email" autocomplete="off">
                 </div>
+                @error('email')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <div class="form-group">
-                    <label for="inputPassword">Password</label>
-                    <input id="inputPassword" type="password" name="password" data-parsley-equalto="change" placeholder="Password" required="" class="form-control">
+                    <input class="form-control form-control-lg" id="password" name="password" type="password" placeholder="Password">
                 </div>
+                @error('password')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
                         <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>

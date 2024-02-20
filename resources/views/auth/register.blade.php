@@ -6,7 +6,7 @@
  
 
 @section('content')
-<form method="POST" action="{{ route('register') }}" class="splash-container" data-parsley-validate="">
+<form method="POST" action="{{ route('register') }}" class="splash-container">
     @csrf
     <div class="card">
         <div class="card-header">
@@ -15,37 +15,34 @@
         </div>
         <div class="card-body">
             <div class="form-group">
-                <label for="inputName">Name</label>
-                <input id="inputName" type="text" name="name" data-parsley-equalto="change" value="{{ old('name') }}" placeholder="Enter name" autocomplete="off" class="form-control" required="">
+                <input class="form-control form-control-lg" type="text" name="name" value="{{ old('name') }}" required="" placeholder="Name" autocomplete="off">
             </div>
             @error('email')
-                <div class="p-1 mb-2 bg-danger text-white">
-                    {{ $message }}
-                </div>
-            <div class="form-group">
-                <label for="inputEmail">Email address</label>
-                <input id="inputEmail" type="email" name="email" data-parsley-equalto="change" value="{{ old('email') }}" placeholder="Enter email" autocomplete="off" class="form-control" required="">
-            </div>
-            @error('email')
-                <div class="p-1 mb-2 bg-danger text-white">
+                <div class="alert alert-danger">
                     {{ $message }}
                 </div>
             @enderror
             <div class="form-group">
-                <label for="inputPassword">Password</label>
-                <input id="inputPassword" type="password" name="password" data-parsley-equalto="change" placeholder="Password" required="" class="form-control">
+                <input class="form-control form-control-lg" type="email" name="email" value="{{ old('email') }}" required="" placeholder="E-mail" autocomplete="off">
+            </div>
+            @error('email')
+                <div class="alert alert-danger">
+                    {{ $message }}
+                </div>
+            @enderror
+            <div class="form-group">
+                <input class="form-control form-control-lg" type="password" name="password" required="" placeholder="Password">
             </div>
             @error('password')
-                <div class="p-1 mb-2 bg-danger text-white">
+                <div class="alert alert-danger">
                     {{ $message }}
                 </div>
             @enderror
             <div class="form-group">
-                <label for="inputConfirmPassword">Confirm Password</label>
-                <input id="inputConfirmPassword" data-parsley-equalto="#inputPassword" name="password_confirmation" type="password" required="" placeholder="Password" class="form-control">
+                <input class="form-control form-control-lg"  type="password" name="confirm_password" required="" placeholder="Password Confirmation">
             </div>
             @error('password_confirmation')
-                <div class="p-1 mb-2 bg-danger text-white">
+                <div class="alert alert-danger">
                     {{ $message }}
                 </div>
             @enderror
@@ -59,7 +56,7 @@
             </div>
         </div>
         <div class="card-footer bg-white">
-            <p>Already member? <a href="/login" class="text-secondary">Login Here.</a></p>
+            <p>Already member? <a href="{{ url('login') }}" class="text-secondary">Login Here.</a></p>
         </div>
     </div>
 </form>
