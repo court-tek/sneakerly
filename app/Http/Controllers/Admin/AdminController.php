@@ -18,4 +18,16 @@ class AdminController extends Controller
     public function all() {
         return view('admin/all');
     }
+
+    public function edit() {
+
+    }
+
+    public function update() {
+
+    }
+
+    public function destroy() {
+        
+    }
 }
