@@ -38,7 +38,8 @@
                     <div class="card">
                         <h5 class="card-header">Basic Form</h5>
                         <div class="card-body">
-                            <form method="POST" action="/admin/dash" id="basicform" data-parsley-validate="">
+                            <form method="POST" action="" id="basicform" data-parsley-validate="">
+                                @csrf
                                 <div class="form-group">
                                     <label for="title">Title</label>
                                     <input id="title" type="text" name="title" data-parsley-trigger="change" required="" placeholder="" value="<?= $article['title'] ?? '' ?>" autocomplete="off" class="form-control">
@@ -70,7 +71,7 @@
                                     </div>
                                     <div class="col-sm-6 pl-0">
                                         <p class="text-right">
-                                            <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-space btn-primary">Create Article</button>
                                         </p>
                                     </div>
                                 </div>
