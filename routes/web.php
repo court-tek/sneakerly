@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Admin\ArticlesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [BlogController::class, 'index']);
 
 Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function() {
     Route::get('dashboard', 'AdminController@dashboard')->middleware('auth');
     Route::get('articles-create', 'AdminController@create')->middleware('auth');
     Route::get('articles-all', 'AdminController@all')->middleware('auth');
+    Route::post('/articles', [ArticlesController::class, 'store'])->name('articles');
 })->middleware(['auth', 'verified']);
 
 // Route::get('/admin/dashboard', 'AdminController@dashboard');

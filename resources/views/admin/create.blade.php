@@ -34,11 +34,12 @@
                 <!-- ============================================================== -->
                 <!-- basic form -->
                 <!-- ============================================================== -->
+                <?php $categories = [1 => 'fashion', 2 => 'footwear', 3 => 'art']; ?>
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <h5 class="card-header">Basic Form</h5>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('logout') }}" data-parsley-validate="">
+                            <form method="POST" action="{{ route('articles') }}">
                                 @csrf
                                 <div class="form-group">
                                     <label for="title">Title</label>
@@ -61,7 +62,9 @@
                                 <div class="form-group">
                                     <label for="category_id">Category Id</label>
                                     <select name="category_id" value="" class="form-control">
-                                            <option></option>
+                                        @foreach ($categories as $category)
+                                            This is us <option>{{ $category }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 @error('category_id')

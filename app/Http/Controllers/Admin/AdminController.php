@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,11 @@ class AdminController extends Controller
 
     public function create() {
         return view('admin/create');
+    }
+
+    public function store(Request $request) 
+    {
+        
     }
 
     public function all() {
