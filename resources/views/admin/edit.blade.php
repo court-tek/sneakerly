@@ -62,9 +62,18 @@
                                 <div class="form-group">
                                     <label for="category_id">Category Id</label>
                                     <select name="category_id" value="" class="form-control">
-                                        @foreach ($categories as $category)
-                                            This is us <option>{{ old('category_id', $category) }}</option>
-                                        @endforeach
+                                        <option value="fashion" @selected( old('category_id', $article->category_id) == 'fashion')>
+                                            Fashion
+                                        </option>
+                                        <option value="footwear" @selected( old('category_id', $article->category_id) == 'footwear')>
+                                            Footwear
+                                        </option>
+                                        <option value="art" @selected( old('category_id', $article->category_id) == 'art')>
+                                            Art
+                                        </option>
+                                        <option value="design" @selected( old('category_id', $article->category_id) == 'design')>
+                                            Design
+                                        </option>
                                     </select>
                                 </div>
                                 @error('category_id')

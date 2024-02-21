@@ -42,6 +42,8 @@ class ArticlesController extends Controller
 
         $article->save();
 
+        session()->flash('success', 'Created New Article Successfully');
+
         return redirect('/admin/articles-all');
 
 
