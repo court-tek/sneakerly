@@ -24,6 +24,7 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
     Route::get('articles-all', 'ArticlesController@index')->middleware('auth');
     Route::get('articles-edit/{id}', 'ArticlesController@edit')->middleware('auth');
     Route::post('/articles', [ArticlesController::class, 'store'])->name('articles');
+    Route::post('/articles/{id}', [ArticlesController::class, 'update'])->name('articles');
 })->middleware(['auth', 'verified']);
 
 // Route::get('/admin/dashboard', 'AdminController@dashboard');

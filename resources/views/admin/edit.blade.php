@@ -39,7 +39,7 @@
                     <div class="card">
                         <h5 class="card-header">Edit Form</h5>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('articles') }}">
+                            <form method="PUT" action="{{ url("admin/articles/{$article->id}") }}">
                                 @csrf
                                 <div class="form-group">
                                     <label for="title">Title</label>
@@ -63,16 +63,16 @@
                                     <label for="category_id">Category Id</label>
                                     <select name="category_id" value="" class="form-control">
                                         <option value="fashion" @selected( old('category_id', $article->category_id) == 'fashion')>
-                                            Fashion
+                                                Fashion
                                         </option>
                                         <option value="footwear" @selected( old('category_id', $article->category_id) == 'footwear')>
-                                            Footwear
+                                                Footwear
                                         </option>
                                         <option value="art" @selected( old('category_id', $article->category_id) == 'art')>
-                                            Art
+                                                Art
                                         </option>
                                         <option value="design" @selected( old('category_id', $article->category_id) == 'design')>
-                                            Design
+                                                Design
                                         </option>
                                     </select>
                                 </div>

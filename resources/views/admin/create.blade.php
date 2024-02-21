@@ -34,7 +34,7 @@
                 <!-- ============================================================== -->
                 <!-- basic form -->
                 <!-- ============================================================== -->
-                <?php $categories = [1 => 'fashion', 2 => 'footwear', 3 => 'art']; ?>
+                <?php $categories = [1 => 'fashion', 2 => 'footwear', 3 => 'art', 4 => 'design']; ?>
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <h5 class="card-header">Basic Form</h5>

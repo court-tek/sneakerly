@@ -46,9 +46,6 @@ class ArticlesController extends Controller
         session()->flash('success', 'Created New Article Successfully');
 
         return redirect('/admin/articles-all');
-
-
-
     }
 
     /**
@@ -74,7 +71,21 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $article = Article::where(['id' => $id])->first();
+
+        $article->user_id = 1;
+        $article->title = $request->title;
+        $article->img_url = $request->img_url;
+        $article->category_id = $request->category_id;
+        $article->author = $request->author;
+        $article->featured = $request->featured;
+        $article->content = $request->content;
+
+        $article->save();
+
+        session()->flash('success', 'Updated The Article Successfully');
+
+        return redirect('/admin/articles-all');
     }
 
     /**
