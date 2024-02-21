@@ -59,6 +59,7 @@
                                             <th class="border-0">Title</th>
                                             <th class="border-0">Author</th>
                                             <th class="border-0">Created Date</th>
+                                            <th class="border-0">Featured</th>
                                             <th class="border-0">Category</th>
                                         </tr>
                                     </thead>
@@ -73,6 +74,7 @@
                                                 <td><a href="{{ url("admin/articles-edit/{$article->id}") }}">{{ $article->title }}</a></td>
                                                 <td>{{ $article->author }}</td>
                                                 <td>{{ date('F jS, Y', strtotime($article->created_at)) }}</td>
+                                                <td>@if($article->featured == 1) Yes @else No @endif</td>
                                                 <td>{{ $article->category_id }}</td>
                                             </tr>
                                         @endforeach
