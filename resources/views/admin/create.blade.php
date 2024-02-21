@@ -93,7 +93,7 @@
                                 <div class="row">
                                     <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                                         <label class="be-checkbox custom-control custom-checkbox">
-                                            {{-- <input type="hidden" name="featured" value="0" class="custom-control-input"></span> --}}
+                                            <input type="hidden" name="featured" value="0" class="custom-control-input"></span>
                                             <input type="checkbox" name="featured" value="1" @checked(old('featured')) class="custom-control-input"><span class="custom-control-label">Featured</span>
                                         </label>
                                     </div>

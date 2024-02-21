@@ -111,14 +111,8 @@
                                     <div class="col-sm-6 pl-0">
                                         <p class="text-right">
                                             <button type="submit" class="btn btn-space btn-primary">Edit Article</button>
-
-                                            <form method="post" action="{{ url("admin/articles/{$article->id}") }}">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="btn btn-space btn-secondary" onclick="return confirm('Are you sure you want to delete this article?')">{{ __('Delete Article') }}</button>
-                                            </form>
-                                        </p>
-                                    </div>
+                                            <a href="{{ route("articles.destroy", ['id' => $article->id]) }}" class="btn btn-space btn-secondary">Delete Article</a>
+                                 </div>
                                 </div>
                             </form>
                         </div>

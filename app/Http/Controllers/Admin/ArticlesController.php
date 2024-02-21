@@ -97,7 +97,7 @@ class ArticlesController extends Controller
  
         $article->delete();
 
-        session()->flash('success', 'Updated The Article Successfully');
+        session()->flash('success', 'Deleted The Article Successfully');
 
         return redirect('/admin/articles-all');
     }

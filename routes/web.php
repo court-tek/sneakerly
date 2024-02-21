@@ -25,7 +25,7 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
     Route::get('articles-edit/{id}', 'ArticlesController@edit')->middleware('auth');
     Route::post('/articles', [ArticlesController::class, 'store'])->name('articles');
     Route::patch('/articles/{id}', [ArticlesController::class, 'update'])->name('articles.update');
-    Route::delete('/articles/{id}', [ArticlesController::class, 'destroy'])->name('articles.destroy');
+    Route::get('/articles-delete/{id}', [ArticlesController::class, 'destroy'])->name('articles.destroy');
 })->middleware(['auth', 'verified']);
 
 // Route::get('/admin/dashboard', 'AdminController@dashboard');
