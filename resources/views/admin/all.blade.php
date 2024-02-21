@@ -21,7 +21,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}" class="breadcrumb-link">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">All Articleskz˚zz
+                                    <li class="breadcrumb-item active" aria-current="page">All Articles
                                 </ol>
                             </nav>
                         </div>
@@ -85,10 +85,22 @@
                     <!-- end campaign activities   -->
                     <!-- ============================================================== -->
                 </div>
+                <div class="row">
+                    <!-- ============================================================== -->
+                    <!-- pagination   -->
+                    <!-- ============================================================== -->
+                    <div class="col-lg-12">
+                        {{ $articles->links() }}
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- pagination   -->
+                    <!-- ============================================================== -->
+                </div>
         </div>
         <!-- ============================================================== -->
         <!-- end content  -->
         <!-- ============================================================== -->
+     
     </div>
     <!-- ============================================================== -->
     <!-- footer -->
