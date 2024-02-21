@@ -38,6 +38,7 @@ class ArticlesController extends Controller
         $article->img_url = $request->img_url;
         $article->category_id = $request->category_id;
         $article->author = $request->author;
+        $article->featured = $request->featured;
         $article->content = $request->content;
 
         $article->save();
