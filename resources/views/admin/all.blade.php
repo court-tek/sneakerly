@@ -20,8 +20,8 @@
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="/admin/dash" class="breadcrumb-link">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"></li>
+                                    <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">All Articleskz˚zz
                                 </ol>
                             </nav>
                         </div>
@@ -56,13 +56,20 @@
                                             <th class="border-0">Category</th>
                                         </tr>
                                     </thead>
-                                    <tbody>    
+                                    <tbody> 
+                                        @foreach ($articles as $article)
                                             <tr>
                                                 <td>
                                                     <div class="m-r-10"><img src="{{ url('admin/images/dribbble.png') }}" alt="user" width="35"></div>
                                                 </td>
-                                                <td></td>
+                                                <td>{{ $article->id }}</td>
+                                                <td>{{ $article->user_id }}</td>
+                                                <td><a href="{{ url("admin/articles-edit/{$article->id}") }}">{{ $article->title }}</a></td>
+                                                <td>{{ $article->author }}</td>
+                                                <td>{{ date('F jS, Y', strtotime($article->created_at)) }}</td>
+                                                <td>{{ $article->category_id }}</td>
                                             </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

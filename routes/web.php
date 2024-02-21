@@ -21,7 +21,8 @@ Route::get('/', [BlogController::class, 'index']);
 Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function() {
     Route::get('dashboard', 'AdminController@dashboard')->middleware('auth');
     Route::get('articles-create', 'AdminController@create')->middleware('auth');
-    Route::get('articles-all', 'AdminController@all')->middleware('auth');
+    Route::get('articles-all', 'ArticlesController@index')->middleware('auth');
+    Route::get('articles-edit/{id}', 'ArticlesController@edit')->middleware('auth');
     Route::post('/articles', [ArticlesController::class, 'store'])->name('articles');
 })->middleware(['auth', 'verified']);
 

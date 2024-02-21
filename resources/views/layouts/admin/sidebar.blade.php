@@ -13,7 +13,7 @@
 	                        <li class="nav-item ">
 	                            <a class="nav-link active" href="/admin/dashboard">
 									<i class="fa fa-fw fa-user-circle"></i>
-									Dick
+									Dashboard
 								</a>
 	                        </li>
 	                        <li class="nav-item">

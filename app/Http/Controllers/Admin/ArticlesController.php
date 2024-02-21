@@ -13,7 +13,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::all();
+
+        return view('admin/all', ['articles' => $articles]);
     }
 
     /**
@@ -51,7 +53,7 @@ class ArticlesController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
@@ -59,7 +61,9 @@ class ArticlesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $article = Article::where(['id' => $id])->first();
+
+        return view('admin/edit', ['article' => $article]);
     }
 
     /**
