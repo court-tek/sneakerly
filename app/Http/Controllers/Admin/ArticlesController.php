@@ -93,6 +93,12 @@ class ArticlesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $article = Article::find($id);
+ 
+        $article->delete();
+
+        session()->flash('success', 'Updated The Article Successfully');
+
+        return redirect('/admin/articles-all');
     }
 }

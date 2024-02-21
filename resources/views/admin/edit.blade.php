@@ -39,8 +39,9 @@
                     <div class="card">
                         <h5 class="card-header">Edit Form</h5>
                         <div class="card-body">
-                            <form method="PUT" action="{{ url("admin/articles/{$article->id}") }}">
+                            <form method="post" action="{{ url("admin/articles/{$article->id}") }}">
                                 @csrf
+                                @method('patch')
                                 <div class="form-group">
                                     <label for="title">Title</label>
                                     <input id="title" type="text" name="title" required="" placeholder="" value="{{ old('title', $article->title) }}" autocomplete="off" class="form-control">
@@ -109,7 +110,12 @@
                                     <div class="col-sm-6 pl-0">
                                         <p class="text-right">
                                             <button type="submit" class="btn btn-space btn-primary">Edit Article</button>
-                                            <button class="btn btn-space btn-secondary">Delete</button>
+
+                                            <form method="post" action="{{ url("admin/articles/{$article->id}") }}">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn btn-space btn-secondary" onclick="return confirm('Are you sure you want to delete this article?')">{{ __('Delete Article') }}</button>
+                                            </form>
                                         </p>
                                     </div>
                                 </div>
