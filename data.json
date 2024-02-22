@@ -2,7 +2,7 @@
     "name": "articles",
     "nike-dunk-low": {
         "title": "Detailed Look at the Awake NY x Jordan Air Ship",
-        "img_url": "blank",
+        "img_url": "https://raw.githubusercontent.com/court-tek/sneakerly/main/public/admin/images/jordanbeast.avif",
         "category_id": "footwear",
         "author": "blank",
         "featured": 1,
@@ -10,7 +10,7 @@
     },
     "kobe-b": {
         "title": "On-Foot Look at the Nike Kobe 8 Protro \"Mambacita\"",
-        "img_url": "blank",
+        "img_url": "https://raw.githubusercontent.com/court-tek/sneakerly/main/public/admin/images/kobemamba1.avif",
         "category_id": "footwear",
         "author": "blank",
         "featured": 0,
@@ -18,7 +18,7 @@
     },
     "fenty-nike": {
         "title": "FENTY x PUMA Avanti Pony Hair “Warm White” & “Alpine Snow”",
-        "img_url": "blank",
+        "img_url": "https://raw.githubusercontent.com/court-tek/sneakerly/main/public/admin/images/fenty-nike1.jpg",
         "category_id": "footwear",
         "author": "blank",
         "featured": 0,

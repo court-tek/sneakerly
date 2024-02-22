@@ -33,11 +33,12 @@ class ArticlesController extends Controller
     {
         $article = new Article;
 
-        $article->user_id = 1;
+        // die(var_dump($article->user_id));
+        $article->user_id = auth()->user()->id;
         $article->title = $request->title;
         $article->img_url = $request->img_url;
         $article->category_id = $request->category_id;
-        $article->author = $request->author;
+        $article->author = auth()->user()->name;
         $article->featured = $request->featured;
         $article->content = $request->content;
 
@@ -73,7 +74,6 @@ class ArticlesController extends Controller
     {
         $article = Article::where(['id' => $id])->first();
 
-        $article->user_id = 1;
         $article->title = $request->title;
         $article->img_url = $request->img_url;
         $article->category_id = $request->category_id;

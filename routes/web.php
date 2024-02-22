@@ -19,14 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [BlogController::class, 'index']);
 
 Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function() {
-    Route::get('dashboard', 'AdminController@dashboard')->middleware('auth');
-    Route::get('articles-create', 'AdminController@create')->middleware('auth');
-    Route::get('articles-all', 'ArticlesController@index')->middleware('auth');
-    Route::get('articles-edit/{id}', 'ArticlesController@edit')->middleware('auth');
+    Route::get('dashboard', 'AdminController@dashboard')->middleware(['auth', 'is_admin']);
+    Route::get('articles-create', 'AdminController@create')->middleware(['auth', 'is_admin']);
+    Route::get('articles-all', 'ArticlesController@index')->middleware(['auth', 'is_admin']);
+    Route::get('articles-edit/{id}', 'ArticlesController@edit')->middleware(['auth', 'is_admin']);
     Route::post('/articles', [ArticlesController::class, 'store'])->name('articles');
     Route::patch('/articles/{id}', [ArticlesController::class, 'update'])->name('articles.update');
     Route::get('/articles-delete/{id}', [ArticlesController::class, 'destroy'])->name('articles.destroy');
-})->middleware(['auth', 'verified']);
+});
 
 // Route::get('/admin/dashboard', 'AdminController@dashboard');
 

@@ -35,7 +35,6 @@
                 <!-- ============================================================== -->
                 <!-- basic form -->
                 <!-- ============================================================== -->
-                <?php $categories = [1 => 'fashion', 2 => 'footwear', 3 => 'art']; ?>
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <h5 class="card-header">Edit Form</h5>
@@ -111,7 +110,8 @@
                                     <div class="col-sm-6 pl-0">
                                         <p class="text-right">
                                             <button type="submit" class="btn btn-space btn-primary">Edit Article</button>
-                                            <a href="{{ route("articles.destroy", ['id' => $article->id]) }}" class="btn btn-space btn-secondary">Delete Article</a>
+                                            <a href="{{ route("articles.destroy", ['id' => $article->id]) }}" onclick="confirm('Are you sure you want to delete this article?')" class="btn btn-space btn-secondary">Delete Article</a>
+                                        </p>
                                  </div>
                                 </div>
                             </form>

@@ -71,16 +71,7 @@
                                     <div class="alert alert-danger">
                                         {{ $message }}
                                     </div>
-                                @enderror                      
-                                <div class="form-group">
-                                    <label for="author">Author</label>
-                                    <input id="author" type="text" name="author" data-parsley-trigger="change" required="" placeholder="" value="{{ old('author') }}" autocomplete="off" class="form-control">
-                                </div>     
-                                @error('author')
-                                    <div class="alert alert-danger">
-                                        {{ $message }}
-                                    </div>
-                                @enderror                       
+                                @enderror                                      
                                 <div class="form-group">
                                     <label for="content">Content</label>
                                     <textarea required="" name="content" class="form-control">{{ old('content') }}</textarea>
