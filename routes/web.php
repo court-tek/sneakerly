@@ -20,7 +20,7 @@ Route::get('/', [BlogController::class, 'index']);
 
 Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function() {
     Route::get('dashboard', 'AdminController@dashboard')->middleware(['auth', 'is_admin']);
-    Route::get('articles-create', 'AdminController@create')->middleware(['auth', 'is_admin']);
+    Route::get('articles-create', 'ArticlesController@create')->middleware(['auth', 'is_admin']);
     Route::get('articles-all', 'ArticlesController@index')->middleware(['auth', 'is_admin']);
     Route::get('articles-edit/{id}', 'ArticlesController@edit')->middleware(['auth', 'is_admin']);
     Route::post('/articles', [ArticlesController::class, 'store'])->name('articles');

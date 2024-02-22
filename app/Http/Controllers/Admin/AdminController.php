@@ -13,7 +13,7 @@ class AdminController extends Controller
     }
 
     public function create() {
-        return view('admin/create');
+        // return view('admin/create');
     }
 
     public function store(Request $request) 
@@ -22,7 +22,7 @@ class AdminController extends Controller
     }
 
     public function all() {
-        return view('admin/all');
+        // return view('admin/all');
     }
 
     public function show() {

@@ -13,7 +13,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(5);
+        $articles = Article::where('user_id', auth()->user()->id)->paginate(5);
 
         return view('admin/all', ['articles' => $articles]);
     }
@@ -23,7 +23,8 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', Article::class);
+        return view('admin/create');
     }
 
     /**
@@ -31,6 +32,7 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Article::class); 
         $article = new Article;
 
         // die(var_dump($article->user_id));
@@ -63,7 +65,7 @@ class ArticlesController extends Controller
     public function edit(string $id)
     {
         $article = Article::where(['id' => $id])->first();
-
+        $this->authorize('update', $article);
         return view('admin/edit', ['article' => $article]);
     }
 
@@ -73,6 +75,8 @@ class ArticlesController extends Controller
     public function update(Request $request, string $id)
     {
         $article = Article::where(['id' => $id])->first();
+
+        $this->authorize('update', $article);
 
         $article->title = $request->title;
         $article->img_url = $request->img_url;
@@ -94,6 +98,8 @@ class ArticlesController extends Controller
     public function destroy(string $id)
     {
         $article = Article::find($id);
+
+        $this->authorize('delete', $article);
  
         $article->delete();
 
