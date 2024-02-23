@@ -13,7 +13,12 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::where('user_id', auth()->user()->id)->paginate(5);
+        $quienTuEres = auth()->user()->role_id;
+        if ($quienTuEres == 2 || $quienTuEres == 1) {
+            $articles = Article::paginate(5);
+        } else {
+            $articles = Article::where('user_id', auth()->user()->id)->paginate(5);
+        }
 
         return view('admin/all', ['articles' => $articles]);
     }

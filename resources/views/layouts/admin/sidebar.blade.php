@@ -1,4 +1,13 @@
-	    <div class="nav-left-sidebar sidebar-dark">
+	    <?php 
+			// die(var_dump(auth()->user()->role_id));
+			// if (auth()->user()->role_id == 3) {
+			// 	die(var_dump("Im a writer"));
+			// } else {
+			// 	die(var_dump("Im not writer"));
+			// }
+			$logged_in = auth()->user()->role_id;
+		?>
+		<div class="nav-left-sidebar sidebar-dark">
 	        <div class="menu-list">
 	            <nav class="navbar navbar-expand-lg navbar-light">
 	                <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
@@ -21,7 +30,11 @@
 	                            <div id="submenu-2" class="collapse submenu" style="">
 	                                <ul class="nav flex-column">
 										<li class="nav-item">
-											<a class="nav-link" href="/admin/articles-create">Create New Article</a>
+											@if ($logged_in == 1)
+												<a class="nav-link text-muted">Create New Article</a>
+											@else
+												<a class="nav-link" href="/admin/articles-create">Create New Article</a>
+											@endif
 	                                    </li>
 										<li class="nav-item">
 											<a class="nav-link" href="/admin/articles-all">Show All Articles</a>

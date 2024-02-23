@@ -13,7 +13,7 @@ class ArticlePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->id === 1 || $user->id === 2;
+        return $user->role_id = 1 || $user->role_id == 2;
     }
 
     /**
@@ -21,7 +21,7 @@ class ArticlePolicy
      */
     public function view(User $user, Article $article): bool
     {
-        return $user->id === 1 || $user->id === 2 || (auth()->check() && $article->user_id === auth()->id);
+        return $user->role_id == 2 || (auth()->check() && $article->user_id === auth()->id());
     }
 
     /**
@@ -29,7 +29,7 @@ class ArticlePolicy
      */
     public function create(User $user): bool
     {
-        return $user->id == 2 || $user->id === 3;
+        return $user->role_id == 2 || $user->role_id == 3;
     }
 
     /**
@@ -37,7 +37,7 @@ class ArticlePolicy
      */
     public function update(User $user, Article $article): bool
     {
-        return $user->id === 2 || (auth()->check() && $article->user_id === auth()->id);
+        return $user->role_id == 2 || (auth()->check() && $article->user_id == auth()->id());
     }
 
     /**

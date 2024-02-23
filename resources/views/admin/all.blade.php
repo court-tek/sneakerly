@@ -1,5 +1,13 @@
 <!-- resources/views/child.blade.php -->
- 
+<?php 
+    // die(var_dump(auth()->user()->role_id));
+    // if (auth()->user()->role_id == 3) {
+    // 	die(var_dump("Im a writer"));
+    // } else {
+    // 	die(var_dump("Im not writer"));
+    // }
+    $logged_in = auth()->user()->role_id;
+?>
 @extends('layouts.admin.admin')
  
 @section('title', 'All Articles')
@@ -71,7 +79,12 @@
                                                 </td>
                                                 <td>{{ $article->id }}</td>
                                                 <td>{{ $article->user_id }}</td>
-                                                <td><a href="{{ url("admin/articles-edit/{$article->id}") }}">{{ $article->title }}</a></td>
+                                                <td>
+                                                    @if ($logged_in == 1)
+												        <a class="">{{ $article->title }}</a>
+                                                    @else
+                                                        <a href="{{ url("admin/articles-edit/{$article->id}") }}">{{ $article->title }}</a></td>
+                                                    @endif
                                                 <td>{{ $article->author }}</td>
                                                 <td>{{ date('F jS, Y', strtotime($article->created_at)) }}</td>
                                                 <td>@if($article->featured == 1) Yes @else No @endif</td>
