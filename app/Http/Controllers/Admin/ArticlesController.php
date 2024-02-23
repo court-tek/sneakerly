@@ -48,6 +48,7 @@ class ArticlesController extends Controller
         $article->author = auth()->user()->name;
         $article->featured = $request->featured;
         $article->content = $request->content;
+        $article->status = "draft";
 
         $article->save();
 
@@ -89,6 +90,7 @@ class ArticlesController extends Controller
         $article->author = $request->author;
         $article->featured = $request->featured;
         $article->content = $request->content;
+        $article->status = $request->status;
 
         $article->save();
 
