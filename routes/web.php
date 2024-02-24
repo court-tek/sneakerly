@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [BlogController::class, 'index']);
 
 Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function() {
-    Route::get('dashboard', 'AdminController@dashboard')->middleware(['auth', 'is_admin']);
+    Route::get('dashboard', 'AdminController@dashboard')->middleware(['auth', 'is_admin'])->name('dashboard.dashboard');
     Route::get('articles-create', 'ArticlesController@create')->middleware(['auth', 'is_admin']);
     Route::get('articles-all', 'ArticlesController@index')->middleware(['auth', 'is_admin']);
     Route::get('articles-edit/{id}', 'ArticlesController@edit')->middleware(['auth', 'is_admin']);

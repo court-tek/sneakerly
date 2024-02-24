@@ -86,7 +86,7 @@
                             <h5 class="mr-2 mb-0 text-white">{{ auth()->user()->name }}</h5>
                             <span class="mr-2 status"></span><span class="">Available</span>
                         </div>
-                        <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                        <a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="fas fa-user mr-2"></i>Account</a>
                         <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
