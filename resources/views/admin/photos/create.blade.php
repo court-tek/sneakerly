@@ -50,24 +50,23 @@
                 <?php $categories = [1 => 'fashion', 2 => 'footwear', 3 => 'art', 4 => 'design']; ?>
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">Basic Form</h5>
+                        <h5 class="card-header">Upload Photo</h5>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('photos', ['id' =>  $id]) }}">
+                            <form method="POST" enctype="multipart/form-data" action="{{ route('photos.store', ['id' =>  $id]) }}">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="title">Title</label>
-                                    <input id="title" type="text" name="title" required="" placeholder="" value="{{ old('title') }}" autocomplete="off" class="form-control">
-                                </div>      
-                                <div class="row">
-                                    <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                        <label class="be-checkbox custom-control custom-checkbox">
-                                            <input type="hidden" name="featured" value="0" class="custom-control-input"></span>
-                                            <input type="checkbox" name="featured" value="1" @checked(old('featured')) class="custom-control-input"><span class="custom-control-label">Featured</span>
-                                        </label>
+                                    <label for="image">Image</label>
+                                    <input id="title" type="file" name="image" required="" placeholder="" value="{{ old('title') }}" autocomplete="off" class="form-control">
+                                </div>
+                                @error('image')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
                                     </div>
+                                @enderror         
+                                <div class="row">
                                     <div class="col-sm-6 pl-0">
                                         <p class="text-right">
-                                            <button type="submit" class="btn btn-space btn-primary">Create Article</button>
+                                            <button type="submit" class="btn btn-space btn-primary">Save Image</button>
                                         </p>
                                     </div>
                                 </div>

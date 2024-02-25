@@ -27,7 +27,7 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
     Route::get('photos/{id}', 'PhotosController@index')->middleware(['auth', 'is_admin'])->name('photos.index');
     Route::get('photos-create/{id}', 'PhotosController@create')->middleware(['auth', 'is_admin'])->name('photos.create');
     Route::get('photos/{id}/edit/{photo_id}', 'PhotosController@edit')->middleware(['auth', 'is_admin'])->name('photos.edit');
-    Route::post('photos/{id}', [PhotosController::class, 'store'])->name('photos');
+    Route::post('photos/{id}', [PhotosController::class, 'store'])->name('photos.store');
     Route::patch('photos/{id}/update/{photo_id}', [PhotosController::class, 'update'])->name('photos.update');
     Route::get('/photos/{id}/delete/{photo_id}', [PhotosController::class, 'destroy'])->name('photos.destroy');
     Route::post('/articles', [ArticlesController::class, 'store'])->name('articles');

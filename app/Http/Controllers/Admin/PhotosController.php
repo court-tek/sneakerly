@@ -21,14 +21,13 @@ class PhotosController extends Controller
             'article_id' => $id
         ])->paginate(5);
         
-        if(!$photos->hasPages()) {
+        if($photos->total() < 1) {
             return redirect("admin/photos-create/{$id}");
         }
-        $article_id = $id;
 
         return view('admin/photos/index', [
             'photos' => $photos,
-            'article_id' => $article_id
+            'id' => $id
         ]);
     }
 
@@ -38,29 +37,34 @@ class PhotosController extends Controller
     public function create(Request $request, $id) 
     {
         $photo = $id;
+
         return view('admin/photos/create', ['id' => $photo]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        return $id;
         // $this->authorize('create', Photo:class); 
 
-        $request()->validate([
+        request()->validate([
             'image' => 'required|file|mimes:jpg,avif,png,webp'
         ]);
+
+        $newName = time() . '-' . $request->file('image')->getClientOriginalName();
+        $size = $request->file('image')->getSize();
+        $request->file('image')->move(public_path('images'), $newName);
         $photo = new Photo;
 
         // die(var_dump($article->user_id));
+        $photo->name = $newName;
+        $photo->size = $size;
         $photo->user_id = auth()->user()->id;
         $photo->article_id = $id;
+        $photo->save();
 
-        return view('admin/photos/create', [
-            'id' => "$id"
-        ]);
+        return redirect("admin/photos/{$id}");
     }
 
     /**

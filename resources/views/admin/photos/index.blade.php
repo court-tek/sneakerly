@@ -30,7 +30,7 @@
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route("articles.edit", ['id' => $article_id]) }}" class="breadcrumb-link">Edit Article</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route("articles.edit", ['id' => $id]) }}" class="breadcrumb-link">Edit Article</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">All Photos</li>
                                 </ol>
                             </nav>
@@ -57,7 +57,7 @@
                     <div class="col-lg-12">
                         <div class="section-block">
                             <h3 class="section-title">All photos</h3>
-                            <a href="{{ url("admin/photos-create/{$aritcle_id}")}}" class="btn btn-primary">Add Photo</a>
+                            <a href="{{ url("admin/photos-create/{$id}")}}" class="btn btn-primary">Add Photo</a>
                         </div>
                         <div class="card">
                             <div class="campaign-table table-responsive">
@@ -74,12 +74,17 @@
                                     <tbody>
                                         @foreach ($photos as $photo)
                                         <tr>
-                                            <td>
+                                            {{-- <td>
                                                 <div class="m-r-10"><img src="{{ url('admin/images/dribbble.png') }}" alt="user" width="35"></div>
-                                            </td>
+                                            </td> --}}
                                             <td>
                                                 <div class="m-r-10">
                                                     {{ $photo->id }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="m-r-10">
+                                                    <img src="/images/{{$photo->name}}" alt="kobe black mamba" style="width: 300px;">
                                                 </div>
                                             </td>
                                             <td>
