@@ -62,6 +62,7 @@ class PhotosController extends Controller
         $photo->size = $size;
         $photo->user_id = auth()->user()->id;
         $photo->article_id = $id;
+        $photo->featured = 0;
         $photo->save();
 
         return redirect("admin/photos/{$id}");
@@ -94,8 +95,16 @@ class PhotosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, $photo_id)
     {
-        //
+        $photo = Photo::find($photo_id);
+
+        // $this->authorize('delete', $article);
+ 
+        $photo->delete();
+
+        session()->flash('success', 'Deleted The Photo Successfully');
+
+        return redirect("/admin/photos/{$id}");
     }
 }

@@ -67,7 +67,7 @@
                                             <th class="border-0">Id</th>
                                             <th class="border-0">Photo</th>
                                             <th class="border-0">Name</th>
-                                            <th class="border-0">Action</th>
+                                            <th class="border-0">Actions</th>
                                         </tr>
                                     </thead>
                                     
@@ -93,7 +93,16 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                
+                                                <ul class="nav">
+                                                    <li class="nav-item">
+                                                        <a href="#" class="nav-link text-secondary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Make featured image">
+                                                            <i class="far fa-gem text-primary" style="font-size: 20px"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="#" class="nav-link text-danger"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to delete image"><i class="far fa-trash-alt" style="font-size: 20px"></i></a>
+                                                    </li>
+                                                </ul>
                                             </td>
                                         </tr>
                                     @endforeach   
