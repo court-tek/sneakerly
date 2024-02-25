@@ -106,8 +106,8 @@
                         <h3 class="card-header">Publish</h3>
                         <div class="card-body"> 
                             <button type="submit" class="btn btn-block btn-primary">Publish Article</button>
-                            <a href="{{ url("admin/photos/{$article->id}") }}" class="btn btn-block btn-primary">Gallery</a>
-                            <a href="{{ url("admin/articles-delete/{$article->id}") }}" onclick="confirm('Are you sure you want to delete this article?')" class="btn btn-block btn-secondary">Delete Article</a>
+                            <button type="submit" class="btn btn-block btn-primary">Gallery</button>
+                            <a href="{{ route("articles.destroy", ['id' => $article->id]) }}" onclick="confirm('Are you sure you want to delete this article?')" class="btn btn-block btn-secondary">Delete Article</a>
                             <div class="form-group mt-3">
                                 <label for="status">Status</label>
                                 <select name="status" id="status" class="form-control">
