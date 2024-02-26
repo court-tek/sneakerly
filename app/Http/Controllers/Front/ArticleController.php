@@ -14,9 +14,11 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+        $paginated = Article::paginate(5);
 
         return view('front/index', [
-            'articles' => $articles
+            'articles' => $articles,
+            'paginated' => $paginated
         ]);
     }
     /**

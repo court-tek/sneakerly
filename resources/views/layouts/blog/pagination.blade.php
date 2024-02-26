@@ -1,4 +1,7 @@
 <footer>
+    {{-- <div class="col-lg-12">
+        {{ $articles->links() }}
+    </div> --}}
     <div class="pagination">
         <!--<a href="#" class="previous">Prev</a>-->
         <a href="#" class="page active">1</a>

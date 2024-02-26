@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Form Validations </h2>
+                    <h2 class="pageheader-title">Create New Article</h2>
                     <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
@@ -37,7 +37,7 @@
                 <?php $categories = [1 => 'fashion', 2 => 'footwear', 3 => 'art', 4 => 'design']; ?>
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">Basic Form</h5>
+                        <h5 class="card-header">Create New Article</h5>
                         <div class="card-body">
                             <form method="POST" action="{{ route('articles') }}">
                                 @csrf

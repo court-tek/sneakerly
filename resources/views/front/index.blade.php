@@ -32,7 +32,7 @@
 
         <!-- Posts -->
         <section class="posts">
-            @foreach ($articles as $article)
+            @foreach ($paginated as $article)
                 @if ($article->featured == 0 && $article->status == "published")
                 <article>
                     <header>
@@ -49,8 +49,14 @@
             @endforeach
         </section>
 
-        <!-- Footer -->
-        @include('layouts.blog.pagination')
+        <footer>
+            <div class="pagination">
+                <div class="col-lg-12">
+                    {{ $paginated->links() }}
+                </div>
+            </div>
+        </footer>
+          
 
 </div>
 @endsection
