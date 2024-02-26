@@ -1,33 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
+use App\Models\Article;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('blog.index');
-    }
+        $articles = Article::all();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('front/index', [
+            'articles' => $articles
+        ]);
     }
 
     /**
@@ -35,7 +25,11 @@ class BlogController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $article = Article::find($id);
+        
+        return view('front/show', [
+            'article' => $article
+        ]);
     }
 
     /**

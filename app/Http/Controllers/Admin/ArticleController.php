@@ -7,8 +7,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ArticlesController extends Controller
+class ArticleController extends Controller
 {
+    /**
+     * Displaya the admin home page
+     */
+    public function home()
+    {
+        return view('admin/dashboard');
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\Admin\ArticlesController;
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\PhotosController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,18 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [BlogController::class, 'index']);
 
 Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function() {
-    Route::get('dashboard', 'AdminController@dashboard')->middleware(['auth', 'is_admin'])->name('dashboard.dashboard');
+    // ADmin home page
+    Route::get('dashboard', 'ArticleController@home')->middleware(['auth', 'is_admin'])->name('dashboard.dashboard');
     
     // Article routes
-    Route::get('articles-create', 'ArticlesController@create')->middleware(['auth', 'is_admin']);
-    Route::get('articles-all', 'ArticlesController@index')->middleware(['auth', 'is_admin']);
-    Route::get('articles-edit/{id}', 'ArticlesController@edit')->middleware(['auth', 'is_admin'])->name('articles.edit');
-    Route::post('/articles', [ArticlesController::class, 'store'])->name('articles');
-    Route::patch('/articles/{id}', [ArticlesController::class, 'update'])->name('articles.update');
-    Route::get('/articles-delete/{id}', [ArticlesController::class, 'destroy'])->name('articles.destroy');
+    Route::get('articles-create', 'ArticleController@create')->middleware(['auth', 'is_admin']);
+    Route::get('articles-all', 'ArticleController@index')->middleware(['auth', 'is_admin']);
+    Route::get('articles-edit/{id}', 'ArticleController@edit')->middleware(['auth', 'is_admin'])->name('articles.edit');
+    Route::post('/articles', [ArticleController::class, 'store'])->name('articles');
+    Route::patch('/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
+    Route::get('/articles-delete/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
     // Photo routes
     Route::get('photos/{id}', 'PhotosController@index')->middleware(['auth', 'is_admin'])->name('photos.index');
@@ -39,7 +38,12 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
     Route::get('/photos/{id}/delete/{photo_id}', [PhotosController::class, 'destroy'])->name('photos.destroy');
 }); 
 
-// Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::prefix('/2024')->namespace('App\Http\Controllers\Front')->group(function() {
+    // Main Blog Routes
+    Route::get('/', 'ArticleController@index');
+    Route::get('article/show/{id}', 'ArticleController@show');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -66,29 +66,13 @@ class PhotosController extends Controller
         $photo->size = $size;
         $photo->user_id = auth()->user()->id;
         $photo->article_id = $id;
-        $photo->featured = ($allPhotos->count() < 1) ? 1 : 0;
+        $photo->featured = ($allPhotos->count() < 1 ) ? 1 : 0;
         $photo->save();
 
         return redirect("admin/photos/{$id}");
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
+      /**
      * Update the specified resource in storage.
      */
     public function featured(Request $request,string $id, string $photo_id)

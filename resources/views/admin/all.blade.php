@@ -90,9 +90,9 @@
                                                 <td>{{ date('F jS, Y', strtotime($article->created_at)) }}</td>
                                                 <td>
                                                     @if ($article->status == "published")
-												        <a class="text-white badge badge-success p-2">{{ $article->status }}</a>
+												        <a class="text-capitalize text-white badge badge-success p-2">{{ $article->status }}</a>
                                                     @else
-                                                        <a class="text-white badge badge-primary p-2">{{ $article->status }}</a></td>
+                                                        <a class="text-capitalize text-white badge badge-primary p-2">{{ $article->status }}</span></a></td>
                                                     @endif
                                                     {{-- {{ $article->status }} --}}
                                                 </td>
