@@ -19,6 +19,50 @@ class ArticleController extends Controller
             'articles' => $articles
         ]);
     }
+    /**
+     * Display a listing of the resource.
+     */
+    public function fashion()
+    {
+        $articles = Article::all();
+
+        return view('front/fashion', [
+            'articles' => $articles
+        ]);
+    }
+    /**
+     * Display a listing of the resource.
+     */
+    public function footwear()
+    {
+        $articles = Article::all();
+
+        return view('front/footwear', [
+            'articles' => $articles
+        ]);
+    }
+    /**
+     * Display a listing of the resource.
+     */
+    public function art()
+    {
+        $articles = Article::all();
+
+        return view('front/art', [
+            'articles' => $articles
+        ]);
+    }
+    /**
+     * Display a listing of the resource.
+     */
+    public function design()
+    {
+        $articles = Article::all();
+
+        return view('front/design', [
+            'articles' => $articles
+        ]);
+    }
 
     /**
      * Display the specified resource.

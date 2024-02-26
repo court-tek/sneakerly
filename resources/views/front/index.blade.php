@@ -10,7 +10,7 @@
 @section('content')
 <div id="main">
 
-    <!-- Featured Post -->
+        <!-- Featured Post -->
         <article class="post featured">
             @foreach ($articles as $article)
                 @if ($article->featured == 1 && $article->status == "published")
@@ -30,27 +30,26 @@
             @endforeach
         </article>
 
-    <!-- Posts -->
+        <!-- Posts -->
         <section class="posts">
             @foreach ($articles as $article)
                 @if ($article->featured == 0 && $article->status == "published")
                 <article>
                     <header>
                         <span class="date">{{ date('F jS, Y', strtotime($article->created_at)) }}</span>
-                        <h2><a href="#">Sed magna<br />
-                        ipsum faucibus</a></h2>
+                        <h2><a href="#">{{ $article->title }}</a></h2>
                     </header>
-                    <a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-                    <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+                    <a href="#" class="image fit"><img src="{{ $article->img_url }}" alt="mambacita kobe" /></a>
+                    <p>by {{ $article->author }}</p>
                     <ul class="actions">
-                        <li><a href="#" class="button">Full Story</a></li>
+                        <li><a href="{{ url("2024/article/show/{$article->id}") }}" class="button">Full Story</a></li>
                     </ul>
                 </article>
                 @endif
             @endforeach
         </section>
 
-    <!-- Footer -->
+        <!-- Footer -->
         @include('layouts.blog.pagination')
 
 </div>

@@ -13,7 +13,7 @@
     <!-- Main -->
     <div id="main">
 
-        <!-- Post -->
+            <!-- Post -->
             <section class="post">
                 <header class="major">
                     <span class="date">{{ date('F jS, Y', strtotime($article->created_at)) }}</span>
@@ -30,7 +30,7 @@
     </div>
     
 
-    <!-- Footer -->
+        <!-- Footer -->
         @include('layouts.blog.pagination')
 
 </div>

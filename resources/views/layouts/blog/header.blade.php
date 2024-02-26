@@ -1,3 +1,3 @@
 <header id="header">
-    <a href="index.html" class="logo">Massively</a>
+    <a href="{{ url("/2024") }}" class="logo">Sneakerly</a>
 </header>

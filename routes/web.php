@@ -27,6 +27,7 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
     Route::get('articles-edit/{id}', 'ArticleController@edit')->middleware(['auth', 'is_admin'])->name('articles.edit');
     Route::post('/articles', [ArticleController::class, 'store'])->name('articles');
     Route::patch('/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
+    Route::get('articles/{id}/status', [ArticleController::class, 'status'])->name('photos.status');
     Route::get('/articles-delete/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
     // Photo routes
@@ -34,13 +35,17 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
     Route::get('photos-create/{id}', 'PhotosController@create')->middleware(['auth', 'is_admin'])->name('photos.create');
     Route::get('photos/{id}/edit/{photo_id}', 'PhotosController@edit')->middleware(['auth', 'is_admin'])->name('photos.edit');
     Route::post('photos/{id}', [PhotosController::class, 'store'])->name('photos.store');
-    Route::get('photos/{id}/featured/{photo_id}', [PhotosController::class, 'featured'])->name('photos.update');
+    Route::get('photos/{id}/featured/{photo_id}', [PhotosController::class, 'featured'])->name('photos.featured');
     Route::get('/photos/{id}/delete/{photo_id}', [PhotosController::class, 'destroy'])->name('photos.destroy');
 }); 
 
 Route::prefix('/2024')->namespace('App\Http\Controllers\Front')->group(function() {
     // Main Blog Routes
     Route::get('/', 'ArticleController@index');
+    Route::get('/fashion', 'ArticleController@fashion');
+    Route::get('/footwear', 'ArticleController@footwear');
+    Route::get('/art', 'ArticleController@art');
+    Route::get('/design', 'ArticleController@design');
     Route::get('article/show/{id}', 'ArticleController@show');
 });
 

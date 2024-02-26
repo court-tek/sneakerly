@@ -34,7 +34,7 @@
     },
     "luis-vuitton": {
         "title": "Pharrell Williams and Tyler, the Creator Take Flight In Collaborative Louis Vuitton Range",
-        "img_url": "blank",
+        "img_url": "https://raw.githubusercontent.com/court-tek/sneakerly/main/public/admin/images/tyler-pharrell.webp",
         "category_id": "fashion",
         "author": "blank",
         "featured": 1,

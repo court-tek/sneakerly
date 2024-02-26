@@ -107,6 +107,26 @@ class ArticleController extends Controller
 
         return redirect('/admin/articles-all');
     }
+    
+    /**
+     * Update the specified resource in storage.
+     */
+    public function status(Request $request, string $id)
+    {
+        $article = Article::where([
+            'id' => $id,
+            'status' => 'draft'
+        ])->first();
+
+        // $this->authorize('update', $article);
+        $article->status = 'published';
+
+        $article->save();
+
+        session()->flash('success', 'The Article was published Successfully');
+
+        return redirect('/admin/articles-all');
+    }
 
     /**
      * Remove the specified resource from storage.
