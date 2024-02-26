@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticlesController extends Controller
 {

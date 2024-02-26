@@ -49,6 +49,11 @@
                         {{ session('success') }}
                     </div>
                 @endif
+                @if (session('warning'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('warning') }}
+                    </div>
+                @endif
                     
                 <div class="row">
                     <!-- ============================================================== -->
@@ -67,6 +72,7 @@
                                             <th class="border-0">Id</th>
                                             <th class="border-0">Photo</th>
                                             <th class="border-0">Name</th>
+                                            <th class="border-0">Featured</th>
                                             <th class="border-0">Actions</th>
                                         </tr>
                                     </thead>
@@ -93,14 +99,23 @@
                                                 </div>
                                             </td>
                                             <td>
+                                                <div class="m-r-10">
+                                                    @if ($photo->featured == 1) 
+                                                        <span class="badge badge-success p-2">Featured</span> 
+                                                    @else 
+                                                        <span class="badge badge-primary p-2">No</sppan>
+                                                    @endif
+                                                </div>
+                                            </td>
+                                            <td>
                                                 <ul class="nav">
                                                     <li class="nav-item">
-                                                        <a href="#" class="nav-link text-secondary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Make featured image">
+                                                        <a href="{{ url("admin/photos/{$photo->article_id}/featured/{$photo->id}") }}" class="nav-link text-secondary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Make featured image">
                                                             <i class="far fa-gem text-primary" style="font-size: 20px"></i>
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a href="#" class="nav-link text-danger"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to delete image"><i class="far fa-trash-alt" style="font-size: 20px"></i></a>
+                                                        <a href="{{ url("admin/photos/{$photo->article_id}/delete/{$photo->id}") }}" class="nav-link text-danger"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Click to delete image"><i class="far fa-trash-alt" style="font-size: 20px"></i></a>
                                                     </li>
                                                 </ul>
                                             </td>
